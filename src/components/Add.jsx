@@ -1,67 +1,23 @@
-import React, { useState } from 'react';
-import { TextField, Button, Box } from '@mui/material';
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
 
 function Add() {
-  const [formData, setFormData] = useState({
-    Name: '',
-    Department: '',
-    Semester: ''
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission logic here
-    console.log('Form Data:', formData);
-  };
 
   return (
-    <Box
-      component="form"
-      sx={{ display: 'flex', flexDirection: 'column', width: '300px', gap: '16px' }}
-      onSubmit={handleSubmit}
-    >
-      <TextField
-        id="name"
-        name="name"
-        label="Name"
-        variant="filled"
-        value={formData.name}
-        onChange={handleChange}
-        InputProps={{ sx: { backgroundColor: 'white' } }}
-        InputLabelProps={{ sx: { color: 'black' } }}
-      />
-      <TextField
-        id="department"
-        name="department"
-        label="Department"
-        variant="filled"
-        value={formData.department}
-        onChange={handleChange}
-        InputProps={{ sx: { backgroundColor: 'white' } }}
-        InputLabelProps={{ sx: { color: 'black' } }}
-      />
-      <TextField
-        id="sem"
-        name="sem"
-        label="Semester"
-        variant="filled"
-        value={formData.sem}
-        onChange={handleChange}
-        InputProps={{ sx: { backgroundColor: 'white' } }}
-        InputLabelProps={{ sx: { color: 'black' } }}
-      />
-      <Button type="submit" variant="contained" color="primary">
-        Submit
-      </Button>
-    </Box>
+    <div>
+    <Stack spacing={2} direction="column" alignItems="flex-start">
+      <TextField id="outlined-basic" label="Name" variant="outlined" InputProps={{ sx: { backgroundColor: 'white' }}}/>
+      <TextField id="outlined-basic" label="Department" variant="outlined" InputProps={{ sx: { backgroundColor: 'white' }}}/>
+      <TextField id="outlined-basic" label="Semester" variant="outlined" InputProps={{ sx: { backgroundColor: 'white' }}} />
+    </Stack><br/>
+    <Stack spacing={2} direction="row">
+      <Button variant="contained">Submit</Button>
+    </Stack>
+
+    </div>
   );
 }
 
